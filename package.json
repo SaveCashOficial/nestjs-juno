@@ -1,0 +1,54 @@
+{
+  "name": "nestjs-juno",
+  "version": "0.0.1",
+  "description": "Nestjs Juno desenvolvido por SaveCash.",
+  "main": "dist/index.js",
+  "author": "douglasgc <douglas.cardoso@savecash.com.br>",
+  "license": "MIT",
+  "keywords": [
+    "nestjs",
+    "juno",
+    "payments",
+    "subscriptions",
+    "webhook",
+    "gatway"
+  ],
+  "devDependencies": {
+    "@nestjs/common": "^5.2.2",
+    "@nestjs/core": "^5.2.2",
+    "@nestjs/testing": "^5.2.2",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^12.7.9",
+    "coveralls": "^3.0.2",
+    "jest": "^24.9.0",
+    "prettier": "^1.14.2",
+    "supertest": "^3.3.0",
+    "ts-jest": "^23.1.4",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.12"
+  },
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "coveralls": "yarn run coverage --coverageReporters=text-lcov | coveralls",
+    "test:watch": "jest --watch",
+    "build": "rm -rf ./dist && tsc",
+    "format": "prettier **/**/*.ts --ignore-path ./.prettierignore --write && git status",
+    "prepublish": "npm run format && npm run build"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "./coverage"
+  }
+}
