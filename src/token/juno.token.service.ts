@@ -12,7 +12,7 @@ export class JunoTokenService {
     public httpService: HttpService,
     @Inject(JUNO_OPTIONS_PROVIDER)
     private options: JunoOptions,
-  ) { }
+  ) {}
   get authorizationHash() {
     return Buffer.from(
       [this.options.clientId, this.options.clientSecret].join(':'),
@@ -28,9 +28,7 @@ export class JunoTokenService {
   }
   authorize() {
     return this.httpService.post(
-      [this.options.endpoint, JUNO_WEBHOOK_AUTHORIZATION_SERVER_POST].join(
-        '/',
-      ),
+      [this.options.endpoint, JUNO_WEBHOOK_AUTHORIZATION_SERVER_POST].join('/'),
       `grant_type=${encodeURIComponent('client_credentials')}`,
       {
         headers: {
