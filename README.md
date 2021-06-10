@@ -1,10 +1,8 @@
 
 <h1 align="center">Nestjs Juno</h1>
 
-<p align="center">
-  Desenvolvido por:
-    <img src="https://dev.juno.com.br/juno.2.0.png"/ style="width: 200px"> <img style="width: 200px" src="https://savecash.com.br/saveCashTeam/images/logo-color.svg"/>  
-
+<p>
+  <img src="logo.png" style="width: 100%">
 </p>
 
 ## Install
