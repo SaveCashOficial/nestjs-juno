@@ -2,7 +2,7 @@
 <h1 align="center">Nestjs Juno</h1>
 
 <p>
-  <img src="logo.png" style="width: 100%">
+  <img src="![alt text](https://github.com/SaveCashOficial/nestjs-juno/blob/master/logo.png?raw=true)" style="width: 100%">
 </p>
 
 ## Install
