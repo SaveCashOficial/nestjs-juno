@@ -5,13 +5,17 @@
   "main": "dist/index.js",
   "author": "douglasgc <douglas.cardoso@savecash.com.br>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SaveCashOficial/nestjs-juno"
+  },
   "keywords": [
     "nestjs",
     "juno",
     "payments",
     "subscriptions",
     "webhook",
-    "gatway"
+    "gateway"
   ],
   "devDependencies": {
     "@nestjs/common": "^5.2.2",
