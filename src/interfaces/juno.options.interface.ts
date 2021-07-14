@@ -2,6 +2,7 @@ export interface JunoOptions {
   endpoint: string;
   clientId: string;
   clientSecret: string;
+  privateToken: string;
 }
 
 export interface JunoAsyncOptions {

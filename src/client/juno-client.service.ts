@@ -8,14 +8,32 @@ export class JunoClientService {
   constructor(
     private httpService: HttpService,
     public junoTokenService: JunoTokenService,
-  ) {}
+  ) { }
   initInterceptor() {
-    this.httpService.axiosRef.interceptors.request.use(this.createRequest);
+    this.httpService.axiosRef.defaults.withCredentials = true;
+    this.httpService.axiosRef.defaults.baseURL = this.junoTokenService.baseUrl;
+    this.httpService.axiosRef.interceptors.request.use(request =>
+      this.createRequest(request),
+    );
   }
   async createRequest(request) {
-    const credentials = await this.junoTokenService.credentials();
-    request.headers.common.Authorization =
-      'Basic ' + credentials['access_token'];
+    if (request.withCredentials == false) {
+      delete request.headers.withCredentials;
+      return request;
+    }
+    try {
+      const credentials = await this.junoTokenService.credentials();
+      request.headers.common.Authorization = [
+        credentials.data['token_type'],
+        credentials.data['access_token'],
+      ].join(' ');
+      request.headers.common['X-Api-Version'] = 2;
+      request.headers.common[
+        'X-Resource-Token'
+      ] = this.junoTokenService.privateToken;
+    } catch (error) {
+      console.log('Erro ao autenticar com a JUNO.');
+    }
     return request;
   }
   get http() {
