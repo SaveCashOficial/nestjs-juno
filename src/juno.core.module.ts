@@ -1,4 +1,4 @@
-import { DynamicModule, Global, Module, Provider } from '@nestjs/common';
+import { DynamicModule, Global, Module, Provider, HttpModule } from '@nestjs/common';
 import { JunoAsyncOptions, JunoOptions } from './interfaces';
 import { JUNO_OPTIONS_PROVIDER } from './juno.constants';
 import JunoProvider from './juno.provider';
@@ -8,6 +8,7 @@ import { JunoClientModule } from './client/juno.client.module';
 @Global()
 @Module({
   imports: [
+    HttpModule,
     JunoTokenModule,
     JunoClientModule,
   ],
