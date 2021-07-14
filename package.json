@@ -1,6 +1,6 @@
 {
   "name": "nestjs-juno",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Nestjs Juno desenvolvido por SaveCash.",
   "main": "dist/index.js",
   "author": "douglasgc <douglas.cardoso@savecash.com.br>",
@@ -18,22 +18,24 @@
     "gateway"
   ],
   "devDependencies": {
-    "@nestjs/common": "^5.2.2",
-    "@nestjs/core": "^5.2.2",
-    "@nestjs/testing": "^5.2.2",
+    "@nestjs/testing": "^7.0.0",
     "@types/jest": "^23.3.1",
     "@types/node": "^12.20.16",
     "coveralls": "^3.1.1",
     "jest": "^24.9.0",
     "prettier": "^1.14.2",
-    "rxjs": "^7.2.0",
     "supertest": "^3.3.0",
-    "ts-jest": "^23.1.4",
-    "typescript": "^3.9.10"
+    "ts-jest": "^23.1.4"
   },
   "dependencies": {
+    "@nestjs/axios": "0.0.1",
+    "@nestjs/common": "^7.0.0",
+    "@nestjs/core": "^7.0.0",
+    "@nestjs/platform-express": "^8.0.2",
     "class-validator": "^0.13.1",
-    "reflect-metadata": "^0.1.12"
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^7.2.0",
+    "typescript": "^3.9.10"
   },
   "scripts": {
     "test": "jest",

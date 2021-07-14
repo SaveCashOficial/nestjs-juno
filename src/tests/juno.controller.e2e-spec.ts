@@ -21,7 +21,7 @@ import { JUNO_WEBHOOK_EVENT_DIGITAL_ACCOUNT_CREATED } from './../juno.constants'
 
 describe('JunoWebhookController', () => {
   let app: INestApplication;
-  let module: TestingModule;
+  let moduleTesting: TestingModule;
   @JunoWebhookHandler()
   class TestExecutionProvider {
     count = 0;
@@ -34,7 +34,7 @@ describe('JunoWebhookController', () => {
   }
 
   beforeAll(async () => {
-    module = await Test.createTestingModule({
+    moduleTesting = await Test.createTestingModule({
       imports: [
         JunoModule.forRootAsync({
           useFactory: async config => Promise.resolve(ambience),
@@ -44,28 +44,32 @@ describe('JunoWebhookController', () => {
       providers: [TestExecutionProvider],
     }).compile();
 
-    app = module.createNestApplication();
+    app = moduleTesting.createNestApplication();
     await app.init();
   });
 
-  it('/juno/webhook (POST) JUNO_WEBHOOK_EVENT_DIGITAL_ACCOUNT_STATUS_CHANGED', async () => {
-    return await request(app.getHttpServer())
+  it('/juno/webhook (POST) JUNO_WEBHOOK_EVENT_DIGITAL_ACCOUNT_STATUS_CHANGED', done => {
+    request(app.getHttpServer())
       .post('/juno/webhook')
       .set('Content-Type', 'application/json')
       .send({
         eventType: JUNO_WEBHOOK_EVENT_DIGITAL_ACCOUNT_STATUS_CHANGED,
       })
-      .expect(201);
+      .expect(201, done);
   });
-  it('/juno/webhook (POST) JUNO_WEBHOOK_EVENT_DIGITAL_ACCOUNT_CREATED', async () => {
-    return await request(app.getHttpServer())
+  it('/juno/webhook (POST) JUNO_WEBHOOK_EVENT_DIGITAL_ACCOUNT_CREATED', done => {
+    request(app.getHttpServer())
       .post('/juno/webhook')
       .set('Content-Type', 'application/json')
-      .send({})
-      .expect(500);
+      .send({
+        eventType: JUNO_WEBHOOK_EVENT_DIGITAL_ACCOUNT_CREATED,
+      })
+      .expect(201, done);
   });
   it('expected test', async () => {
-    const provider = module.get<TestExecutionProvider>(TestExecutionProvider);
+    const provider = moduleTesting.get<TestExecutionProvider>(
+      TestExecutionProvider,
+    );
     expect(provider.count).toBe(1);
   });
   afterAll(async () => {

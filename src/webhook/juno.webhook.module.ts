@@ -4,7 +4,7 @@ import JunoWebhookController from './juno.webhook.controller';
 import JunoWebhookProvider from './juno.webhook.provider';
 import JunoModule from './../juno.module';
 import { ModulesContainer } from '@nestjs/core/injector/modules-container';
-import { METADATA as NEST_METADATA_CONSTANTS } from '@nestjs/common/constants';
+import { MODULE_METADATA as NEST_METADATA_CONSTANTS } from '@nestjs/common/constants';
 import {
   JUNO_WEBHOOK_PROVIDER,
   JUNO_WEBHOOK_METHOD,

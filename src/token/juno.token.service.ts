@@ -1,9 +1,10 @@
-import { Injectable, HttpService, Inject } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { JunoOptions } from '..';
 import {
   JUNO_OPTIONS_PROVIDER,
   JUNO_WEBHOOK_AUTHORIZATION_SERVER_POST,
 } from '../juno.constants';
+import { HttpService } from '@nestjs/axios';
 
 @Injectable()
 export class JunoTokenService {

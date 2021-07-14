@@ -12,6 +12,11 @@ import { JunoClientModule } from './client/juno.client.module';
     JunoTokenModule,
     JunoClientModule,
   ],
+  exports: [
+    HttpModule,
+    JunoTokenModule,
+    JunoClientModule,
+  ]
 })
 export default class JunoCoreModule {
 
