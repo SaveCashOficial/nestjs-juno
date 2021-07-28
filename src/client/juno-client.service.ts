@@ -8,7 +8,7 @@ export class JunoClientService {
   constructor(
     private httpService: HttpService,
     public junoTokenService: JunoTokenService,
-  ) { }
+  ) {}
   initInterceptor() {
     this.httpService.axiosRef.defaults.withCredentials = true;
     this.httpService.axiosRef.defaults.baseURL = this.junoTokenService.baseUrl;
