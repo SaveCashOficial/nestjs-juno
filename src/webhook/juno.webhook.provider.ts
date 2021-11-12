@@ -49,10 +49,6 @@ export default class JunoWebhookProvider {
 
   addProvider(provider: Provider) {
     this.providers[provider.constructor.name] = provider;
-    Logger.log(
-      `Added provider [${provider.constructor.name}]`,
-      'JunoWebhookProvider',
-    );
   }
 
   addMethod(hook: string, method: string, provider: string) {
@@ -63,6 +59,5 @@ export default class JunoWebhookProvider {
         method,
       },
     ];
-    Logger.log(`Added method [${method}]`, 'JunoWebhookProvider');
   }
 }
