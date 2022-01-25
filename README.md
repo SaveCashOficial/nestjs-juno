@@ -23,6 +23,7 @@ import { JunoModule } from 'nestjs-juno';
         endpoint: '',
         clientId: '',
         clientSecret: '',
+        privateToken: '',
     }),
   ],
 })
@@ -65,6 +66,7 @@ export default {
         endpoint: process.env.JUNO_ENDPOINT,
         clientId: process.env.JUNO_CLIENT_ID,
         clientSecret: process.env.JUNO_CLIENT_SECRET,
+        privateToken: process.env.JUNO_PRIVATE_TOKEN,
 };
 ```
 
